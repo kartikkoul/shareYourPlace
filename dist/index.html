@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Share a Place</title>
+    <link rel="stylesheet" href="assets/styles/app.css" />
+    <link rel="stylesheet" href="assets/styles/share-place.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="assets/scripts/SharePlace.js" defer></script>
+
+    <!-- Leaflet -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet..min.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- ESRI Leaflet -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/esri-leaflet/3.0.4/esri-leaflet.js" integrity="sha512-oUArlxr7VpoY7f/dd3ZdUL7FGOvS79nXVVQhxlg6ij4Fhdc4QID43LUFRs7abwHNJ0EYWijiN5LP2ZRR2PY4hQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/esri-leaflet/3.0.4/esri-leaflet.min.js" integrity="sha512-d+RLuXyNeFLj56dehC9/rAX2moh4gxNzZLEVhKTkbLzNhyJeqmZfqPefdbcuFuClMgq+yp89p29zk4y/eIbj5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- ESRI Geocoder -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/esri-leaflet-geocoder/3.1.1/esri-leaflet-geocoder.js" integrity="sha512-enHceDibjfw6LYtgWU03hke20nVTm+X5CRi9ity06lGQNtC9GkBNl/6LoER6XzSudGiXy++avi1EbIg9Ip4L1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/esri-leaflet-geocoder/3.1.1/esri-leaflet-geocoder.min.js" integrity="sha512-KoduJUOhl4vBYWRGZgWY6OaPXtnXkZQQtOg9Q9SpIbpVtrR543imaN4dUPs/n3EvkZTNzDflulyNri3zwnWOeA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  </head>
+  <body>
+    <template id="modal-template">
+      <div class="backdrop"></div>
+      <div class="modal"></div>
+    </template>
+    <template id="loading-modal-content">
+      <div class="modal__content centered">
+        <div class="lds-dual-ring"></div>
+      </div>
+    </template>
+
+    <header>
+      <h1>Share a Place!</h1>
+    </header>
+
+    <section id="selected-place" class="card">
+      <div id="map">
+      </div>
+    </section>
+
+    <section id="share-controls" class="card">
+      <input
+        id="share-link"
+        type="text"
+        readonly
+        placeholder="Select a place to get a sharable link."
+      />
+      <button id="share-btn" disabled>Share Place</button>
+    </section>
+
+    <section id="place-data" class="card">
+      <form>
+        <label for="address">Address</label>
+        <input type="text" />
+        <button type="submit">Find Place</button>
+      </form>
+      <button id="locate-btn">Get Current Location</button>
+    </section>
+  </body>
+</html>
